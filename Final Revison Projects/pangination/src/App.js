@@ -56,7 +56,9 @@ function App() {
           })}
         </div>
         <div className="flex justify-center flex-wrap  ">
-          <button onClick={handlePrev}>Prev</button>
+          <button onClick={handlePrev} className={page <= 0 ? " hidden " : " "}>
+            Prev
+          </button>
           {!loading &&
             data.map((item, i) => {
               return (
@@ -69,7 +71,12 @@ function App() {
                 </button>
               );
             })}
-          <button onClick={handleNext}>Next</button>
+          <button
+            onClick={handleNext}
+            className={page >= data.length - 1 ? " hidden " : " "}
+          >
+            Next
+          </button>
         </div>
       </section>
     </main>
